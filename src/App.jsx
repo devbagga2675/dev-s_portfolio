@@ -29,32 +29,7 @@ import "animate.css";
 import "./App.css";
 
 function App() {
-  // const navBgRef = useRef(null); // Reference for .top-nav-bg
-  // const navCrossRef = useRef(null); // Reference for .navbar-cross
 
-  // useEffect(() => {
-  //   const navBg = navBgRef.current;
-  //   const navCross = navCrossRef.current;
-
-  //   const handleClick = () => {
-  //     if (navBg) {
-  //       navBg.style.height = "0";
-  //       navBg.style.width = "0";
-  //       navBg.style.transition = "height 0.3s ease-in, width 0.3s ease-in";
-  //     }
-
-  //   };
-
-  //   if (navCross) {
-  //     navCross.addEventListener("click", handleClick);
-  //   }
-
-  //   return () => {
-  //     if (navCross) {
-  //       navCross.removeEventListener("click", handleClick);
-  //     }
-  //   };
-  // }, []);
   const [isNavOpen, setisNavOpen] = useState(true);
   const backtotopRef = useRef();
   const topcontentRef = useRef();
@@ -215,9 +190,8 @@ function App() {
               >
                 <div className="social-tile d-flex align-items-end ">
                   <div className="social-tile-text fs-2">
-                    {" "}
                     <a
-                      href="https://www.linkedin.com/in/dev-bagga-458879288/"
+                      href="https://github.com/devbagga2675"
                       style={{ textDecorationLine: "none", color: "white" }}
                     >
                       GITHUB
@@ -293,95 +267,7 @@ function App() {
               </div>
             </div>
 
-            {/* <Marquee
-                speed={200} // Lower speed for smoother scrolling
-                gradient={false} // Remove gradient if unnecessary
-                pauseOnHover // Pause when hovering
-                className="marquee-div"
-                style={{overflow: "hidden"}}
-              >
-                <div className="marquee-link mx-4 font-thunder-black-lc text-center">
-                  <a
-                    href="http://github.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GITHUB
-                  </a>
-                </div>
-                <div className="marquee-link mx-4 font-thunder-black-lc text-center">
-                  <a
-                    href="http://linkedin.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    LINKEDIN
-                  </a>
-                </div>
-                <div className="marquee-link mx-4 font-thunder-black-lc text-center">
-                  <a
-                    href="http://figma.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    FIGMA
-                  </a>
-                </div>
-                <div className="marquee-link mx-4 font-thunder-black-lc text-center">
-                  <a
-                    href="http://github.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GITHUB
-                  </a>
-                </div>
-                <div className="marquee-link mx-4 font-thunder-black-lc text-center">
-                  <a
-                    href="http://linkedin.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    LINKEDIN
-                  </a>
-                </div>
-                <div className="marquee-link mx-4 font-thunder-black-lc text-center">
-                  <a
-                    href="http://figma.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    FIGMA
-                  </a>
-                </div>
-                <div className="marquee-link mx-4 font-thunder-black-lc text-center">
-                  <a
-                    href="http://github.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    GITHUB
-                  </a>
-                </div>
-                <div className="marquee-link mx-4 font-thunder-black-lc text-center">
-                  <a
-                    href="http://linkedin.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    LINKEDIN
-                  </a>
-                </div>
-                <div className="marquee-link mx-4 font-thunder-black-lc text-center">
-                  <a
-                    href="http://figma.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    FIGMA
-                  </a>
-                </div>
-              </Marquee> */}
+       
           </div>
         </section>
         <section
@@ -627,7 +513,7 @@ function App() {
                 <div className="contact-me-socials-and-docs d-flex">
                   <div className="col-one d-flex flex-column me-5">
                     <a
-                      href="http://"
+                      href="https://github.com/devbagga2675"
                       className="footer-link fs-5 fs-md-4 fs-lg-4 montserrat-regular mt-3"
                       data-aos="fade-up"
                       data-aos-delay="500"
