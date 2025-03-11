@@ -122,7 +122,7 @@ function App() {
           }}
         />
       )}
-      <div className="bg-div w-100 h-100 position-fixed"></div>
+      <div className="bg-div position-fixed"></div>
       <div className="top-content w-100 top-0 d-flex justify-content-between position-fixed ">
         <div className="top-content-left animate__animated animate__slideInRight">
           <div className="nav-logo-bg d-flex justify-content-center align-items-center">
@@ -393,7 +393,6 @@ function App() {
                 data-aos-delay="150"
               >
                 <div class="project-heading d-flex gap-5 project-container">
-                  {" "}
                   <h3 class="font-thunder-black-lc title-text text-white project-title">
                   <a
                       className="footer-link"

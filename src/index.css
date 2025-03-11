@@ -36,6 +36,8 @@ html.dark-mode {
 }
 .bg-div{
   top: 0;
+  width: 100vw;
+  height: 100vh;
   background-image: url('./assets/noise-bg.png');
   z-index: -1;
 }
@@ -303,6 +305,9 @@ line-height: 1;
     font-size: 4rem;
   }
 
+  .project-arrow{
+    display: none;
+  }
   .sayhi-image img{
     height: 200px !important;
     margin: none !important;
