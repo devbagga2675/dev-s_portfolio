@@ -1,8 +1,572 @@
+// import React, { useEffect, useRef, useState } from "react";
+// import logo from "./assets/logo-dark-svg.svg";
+// import backtotop from "./assets/backtotop.svg";
+// import navcross from "./assets/navcross.svg";
+// import Marquee from "react-fast-marquee";
+// import heroimage from "./assets/hero-image.svg";
+// import html5 from "./assets/Html 5.svg";
+// import css3 from "./assets/CSS3.svg";
+// import javascript from "./assets/JavaScript.svg";
+// import bootstrap from "./assets/Bootstrap.svg";
+// import react from "./assets/React Native.svg";
+// import nodeJs from "./assets/Node Js.svg";
+// import figma from "./assets/Figma.svg";
+// import canva from "./assets/Canva.svg";
+// import firebase from "./assets/Firebase.svg";
+// import java from "./assets/Java.svg";
+// import mysql from "./assets/MySQL Logo.svg";
+// import cProgramming from "./assets/C Programming.svg";
+// import git from "./assets/Git.svg";
+// import github from "./assets/GitHub.svg";
+// import arrow from "./assets/arrow.svg";
+// import sayhi from "./assets/sayhi.svg";
+// import githubicon from "./assets/icons8-github.svg";
+// import AOS from "aos";
+// import { useLoco } from "./hooks/useLoco";
+// import "aos/dist/aos.css";
+// import AnimatedCursor from "react-animated-cursor";
+// import "animate.css";
+// import "./App.css";
+
+// function App() {
+
+//   const [isNavOpen, setisNavOpen] = useState(true);
+//   const backtotopRef = useRef();
+//   const topcontentRef = useRef();
+//   const navCrossRef = useRef();
+//   const scrollRef = useLoco();
+//   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+//   useEffect(() => {
+//     AOS.init({
+//       once: "true",
+//     });
+
+//     const timeoutId = setTimeout(() => {
+//       setisNavOpen(false);
+//     }, 3000);
+
+//     const backtotopbutton = backtotopRef.current;
+//     const topcontentright = topcontentRef.current;
+//     const navCross = navCrossRef.current;
+//     const fastScrollElement = document.getElementById("fastScroll");
+
+//     if (
+//       !backtotopbutton ||
+//       !topcontentright ||
+//       !navCross ||
+//       !fastScrollElement
+//     ) {
+//       console.error("One or more elements not found");
+//       return () => clearTimeout(timeoutId); //clear timeout on unmount
+//     }
+
+//     const handleBackToTop = () => {
+//       window.scrollTo({ top: 0, behavior: "smooth" });
+//     };
+
+//     const handleScroll = () => {
+//       if (window.scrollY > 100) {
+//         backtotopbutton.style.transform = "rotate(0deg)";
+//       } else {
+//         backtotopbutton.style.transform = "rotate(180deg)";
+//       }
+//     };
+
+//     const handleSpeedScroll = () => {
+//       let scrollPosition = window.scrollY;
+//       fastScrollElement.style.transform = `translateY(${-(
+//         scrollPosition * 0.4
+//       )}px)`;
+//     };
+
+//     backtotopbutton.addEventListener("click", handleBackToTop);
+//     // navCross.addEventListener('click', toggleNav); // assuming toggleNav is defined elsewhere
+//     window.addEventListener("scroll", handleScroll);
+//     window.addEventListener("scroll", handleSpeedScroll);
+
+//     return () => {
+//       clearTimeout(timeoutId);
+//       backtotopbutton.removeEventListener("click", handleBackToTop);
+//       // navCross.removeEventListener('click', toggleNav);
+//       window.removeEventListener("scroll", handleScroll);
+//       window.removeEventListener("scroll", handleSpeedScroll);
+//     };
+//   }, []); // Dependency array is empty, as intended
+
+//   const toggleNav = () => {
+//     setisNavOpen(!isNavOpen);
+//   };
+
+//   return (
+//     <div className="app position-relative">
+//       {window.innerWidth < "768px" ? (
+//         ""
+//       ) : (
+//         <AnimatedCursor
+//           color="#fff"
+//           innerSize={26}
+//           trailingSpeed={12}
+//           outerSize={200}
+//           innerScale={1}
+//           outerScale={6}
+//           outerAlpha={0.4}
+//           innerStyle={{
+//             border: "2px solid white",
+//             backgroundColor: "var(--cursor-color)",
+//             content: "</>",
+//           }}
+//           outerStyle={{
+//             backgroundColor: "#ffffff",
+//             mixBlendMode: "exclusion",
+//           }}
+//         />
+//       )}
+//       <div className="bg-div position-fixed"></div>
+//       <div className="top-content w-100 top-0 d-flex justify-content-between position-fixed ">
+//         <div className="top-content-left animate__animated animate__slideInRight">
+//           <div className="nav-logo-bg d-flex justify-content-center align-items-center">
+//             <img className="logo-svg" src={logo} alt="logo"></img>
+//           </div>
+//         </div>
+//         <div
+//           className={`top-content-right bg bg-dark ${
+//             isNavOpen ? "nav-open" : ""
+//           }`}
+//           ref={topcontentRef}
+//         >
+//           <div className="top-nav-content d-flex flex-column justify-content-end align-items-end m-3">
+//             <div className="navbar-cross" onClick={toggleNav}>
+//               <img
+//                 src={navcross}
+//                 className="navcross-svg"
+//                 alt="navcross"
+//                 ref={navCrossRef}
+//               />
+//             </div>
+//             <ul className="top-nav flex-column d-flex align-items-stretch montserrat-regular text-end mt-3">
+//               <li className="nav-item d-flex justify-content-end align-items-center position-relative">
+//                 <div className="nav-bg-div position-absolute"></div>
+//                 <div className="nav-link ms-1 position-relative z-index-1">
+//                   <a href="#contact">Reach Out</a>
+//                 </div>
+//               </li>
+//               <li className="nav-item d-flex justify-content-end align-items-center position-relative">
+//                 <div className="nav-bg-div position-absolute"></div>
+//                 <div className="nav-link ms-1 position-relative z-index-1">
+//                   <a href="#projects">See My Work</a>
+//                 </div>
+//               </li>
+//               <li className="nav-item d-flex justify-content-end align-items-center position-relative">
+//                 <div className="nav-bg-div position-absolute"></div>
+//                 <div className="nav-link ms-1 position-relative z-index-1">
+//                   Resume
+//                 </div>
+//               </li>
+//             </ul>
+//           </div>
+//         </div>
+//       </div>
+
+//       <div className="back-to-top-div position-fixed bottom-0 end-0 m-3">
+//         <img
+//           className="back-to-top"
+//           src={backtotop}
+//           alt="backtotop"
+//           srcSet=""
+//           ref={backtotopRef}
+//         />
+//       </div>
+//       <div className="web-page-content d-flex flex-column align-items-center position-relative z-index-0">
+//         <section
+//           id="landing-section"
+//           className="w-100 d-flex justify-content-center align-items-center"
+//         >
+//           <div className="landing-content container-fluid">
+//             <div className="title-text container-fluid d-flex flex-column align-items-center justify-content-center">
+//               <div
+//                 className="social-links d-flex font-thunder-bold-lc gap-5 mb-5 fast-scroll animate__animated animate__fadeInDownBig"
+//                 id="fastScroll"
+//               >
+//                 <div className="social-tile d-flex align-items-end ">
+//                   <div className="social-tile-text fs-2">
+//                     <a
+//                       href="https://github.com/devbagga2675"
+//                       style={{ textDecorationLine: "none", color: "white" }}
+//                     >
+//                       GITHUB
+//                     </a>
+//                   </div>
+//                   <div className="social-tile-icon">
+//                     <img src={github} alt="" srcset="" height={40} />
+//                   </div>
+//                 </div>
+//                 <div className="social-tile d-flex align-items-end">
+//                   <div className="social-tile-text fs-2">
+//                     <a
+//                       href="https://www.linkedin.com/in/dev-bagga-458879288/"
+//                       target="_blank"
+//                       rel="noopener noreferrer"
+//                       style={{ textDecorationLine: "none", color: "white" }}
+//                     >
+//                       LINKEDIN
+//                     </a>
+//                   </div>
+//                   <div className="social-tile-icon">
+//                     <img
+//                       width="40"
+//                       height="40"
+//                       src="https://img.icons8.com/color/40/linkedin.png"
+//                       alt="linkedin"
+//                     />
+//                   </div>
+//                 </div>
+//                 <div className="social-tile d-flex align-items-end">
+//                   <div className="social-tile-text fs-2">
+//                     {" "}
+//                     <a
+//                       href="https://dribbble.com/devdesigns26"
+//                       target="_blank"
+//                       rel="noopener noreferrer"
+//                       style={{ textDecorationLine: "none", color: "white" }}
+//                     >
+//                       DRIBBBLE
+//                     </a>
+//                   </div>
+//                   <div className="social-tile-icon">
+//                     <img
+//                       width="40"
+//                       height="40"
+//                       src="https://img.icons8.com/ultraviolet/40/dribbble.png"
+//                       alt="dribbble"
+//                     />
+//                   </div>
+//                 </div>
+//               </div>
+//               <div className="title-text-heading font-thunder-black-lc text-center w-100">
+//                 DEV BAGGA
+//               </div>
+//               <div className="title-text-sub-heading w-100 d-flex justify-content-between caveat-fourHun align-items-center row-wrap w-100 ">
+//                 <div className="sub-heading-text d-flex flex-wrap  animate__animated animate__fadeInLeft">
+//                   <div className="sub-heading-div me-4  d-flex align-items-center position-relative">
+//                     <div className="sub-heading-bg-div position-absolute "></div>
+//                     <div className="sub-heading-text ms-4 position-relative z-index-1">
+//                       UI/UX Designer
+//                     </div>
+//                   </div>
+//                   <div className="sub-heading-div me-4 d-flex align-items-center position-relative">
+//                     <div className="sub-heading-bg-div position-absolute"></div>
+//                     <div className="sub-heading-text ms-4 position-relative z-index-1">
+//                       Frontend Developer
+//                     </div>
+//                   </div>
+//                 </div>
+//                 <div className="sub-heading-graphics font-thunder-black-lc animate__animated animate__fadeInRight">
+//                   {"</>"}
+//                 </div>
+//               </div>
+//             </div>
+
+       
+//           </div>
+//         </section>
+//         <section
+//           id="aboutme"
+//           className="content-section container-fluid mx-1 p-2"
+//         >
+//           <div
+//             className="title-text content-heading font-thunder-black-lc text-center"
+//             data-aos="fade-up"
+//             data-aos-delay="50"
+//           >
+//             BUILDING MODERN USER EXPERIENCES
+//           </div>
+
+//           <div className="about-me-content d-flex justify-content-center align-items-center mt-2 flex-wrap">
+//             <div
+//               className="about-me-content-text d-flex flex-column justify-content-end mx-3 mb-5 text-center"
+//               data-aos="fade-up"
+//               data-aos-delay="100"
+//             >
+//               <div className="about-me-content-text-1 caveat-fourHun mt-5">
+//                 Hello there! I'm Dev, an undergrad student. I like designing,
+//                 developing, watching movies, and sketching.
+//               </div>
+//               <div
+//                 className="about-me-content-text-2 montserrat-regular mt-5"
+//                 data-aos="fade-up"
+//                 data-aos-delay="150"
+//               >
+//                 “Not a traditional graphic designer focused solely on visuals
+//                 but I enjoy sketching and crafting clean, minimalist
+//                 interfaces.”
+//               </div>
+//               <div
+//                 className="about-me-content-text-3 montserrat-regular mt-5"
+//                 data-aos="fade-up"
+//                 data-aos-delay="200"
+//               >
+//                 “Dev is in my name, so it's no surprise I love developing just
+//                 as much as designing.”
+//               </div>
+//             </div>
+
+//             <img
+//               src={heroimage}
+//               alt=""
+//               className="about-me-content-image"
+//               data-aos="fade-up"
+//               data-aos-delay="300"
+//             />
+//           </div>
+
+//           <div
+//             className="skillset-content"
+//             data-aos="fade-up"
+//             data-aos-delay="400"
+//           >
+//             <div className="skillset-heading text-center font-thunder-extra-bold-lc">
+//               SKILLSET
+//             </div>
+//             <div className="row skillset-tiles d-flex flex-wrap justify-content-center align-items-center">
+//               {[
+//                 html5,
+//                 css3,
+//                 javascript,
+//                 bootstrap,
+//                 react,
+//                 nodeJs,
+//                 figma,
+//                 canva,
+//                 firebase,
+//                 git,
+//                 github,
+//                 mysql,
+//                 java,
+//                 cProgramming,
+//               ].map((skill, index) => (
+//                 <img
+//                   key={index}
+//                   src={skill}
+//                   alt={skill}
+//                   className="skillset-tile my-2"
+//                   data-aos="fade-up"
+//                   data-aos-delay={index * 50 + 300} // Starts at 500ms, increments by 100ms
+//                 />
+//               ))}
+//             </div>
+//           </div>
+//         </section>
+
+//         <section
+//           id="projects"
+//           className="content-section container-fluid mx-1 p-2"
+//         >
+//           <div className="container-fluid my-work-section py-5">
+//             <div class="d-flex flex-column">
+//               <div
+//                 class="my-3 project-div "
+//                 data-aos="fade-right"
+//                 data-aos-delay="100"
+//               >
+//                 <div class="project-heading d-flex gap-5 project-container">
+//                   {" "}
+//                   <h3 class="font-thunder-black-lc title-text text-white project-title">
+//                     <a
+//                       className="footer-link"
+//                       href="https://www.figma.com/proto/qUoEu889rebP5uSya0jz2k/Untitled?page-id=0%3A1&node-id=1001-15&viewport=1314%2C774%2C0.32&t=ACNpPr8LwecGmP3C-1&scaling=scale-down&content-scaling=fixed"
+//                       target="_blank"
+//                       rel="noopener noreferrer"
+//                     >
+//                       VOYA
+//                     </a>
+//                   </h3>
+//                   <img src={arrow} alt="" class="project-arrow" />
+//                 </div>
+//                 <p class="montserrat-regular text-dark-teal">2024</p>
+//               </div>
+
+//               <div
+//                 class="my-3 project-div"
+//                 ppo8
+//                 data-aos="fade-right"
+//                 data-aos-delay="150"
+//               >
+//                 <div class="project-heading d-flex gap-5 project-container">
+//                   <h3 class="font-thunder-black-lc title-text text-white project-title">
+//                   <a
+//                       className="footer-link"
+//                       href="https://optolinq.online/#homepage"
+//                       target="_blank"
+//                       rel="noopener noreferrer"
+//                     >
+//                       optolinq.online
+//                     </a>
+//                   </h3>
+//                   <img src={arrow} alt="" class="project-arrow" />
+//                 </div>
+//                 <p class="montserrat-regular text-dark-teal">
+//                   Internship Project
+//                 </p>
+//               </div>
+
+//               <div
+//                 class="my-3 project-div"
+//                 data-aos="fade-right"
+//                 data-aos-delay="200"
+//               >
+//                 <div class="project-heading d-flex gap-5 project-container">
+//                   {" "}
+//                   <h3 class="font-thunder-black-lc title-text text-white project-title">
+//                     PORTFOLIO
+//                   </h3>
+//                   <img src={arrow} alt="" class="project-arrow" />
+//                 </div>
+//                 <p class="montserrat-regular text-dark-teal">2025</p>
+//               </div>
+
+//               <div
+//                 class="my-3 project-div"
+//                 data-aos="fade-right"
+//                 data-aos-delay="250"
+//               >
+//                 <div class="project-heading d-flex gap-5 project-container">
+//                   {" "}
+//                   <h3 class="font-thunder-black-lc title-text text-white project-title">
+//                     <a
+//                       className="footer-link"
+//                       href="https://dribbble.com/devdesigns26"
+//                       target="_blank"
+//                       rel="noopener noreferrer"
+//                     >
+//                       100 DAYS OF DESIGN
+//                     </a>
+//                   </h3>
+//                   <img src={arrow} alt="" class="project-arrow" />
+//                 </div>
+//                 <p class="montserrat-regular text-dark-teal">Ongoing</p>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+//         <section
+//           id="contact"
+//           className="content-section container-fluid mx-1 p-2"
+//           style={{ height: "100vh", width: "100vw" }}
+//         >
+//           <div className="contact-section-div h-100 w-100 d-flex justify-content-center align-items-center position-relative">
+//             <div className="contact-content d-flex flex-wrap justify-content-start m-3">
+//               <div
+//                 className="sayhi-image me-5 ms-3"
+//                 data-aos="fade-left"
+//                 data-aos-duration="1000"
+//               >
+//                 <img src={sayhi} alt="" height="400" />
+//               </div>
+
+//               <div className="contact-text-content p-3 d-flex flex-column justify-content-start">
+//                 <div className="contact-me-text-message-links">
+//                   {/* Each text block fades up one by one */}
+//                   <div
+//                     className="contact-small-text montserrat-regular"
+//                     data-aos="fade-up"
+//                     data-aos-delay="100"
+//                   >
+//                     email me at
+//                   </div>
+//                   <div
+//                     className="contact-large-text montserrat-regular mb-4"
+//                     data-aos="fade-up"
+//                     data-aos-delay="200"
+//                   >
+//                     devbagga2675@outlook
+//                     <img
+//                       src={arrow}
+//                       alt=""
+//                       height="30"
+//                       className="ms-2 inline-arrow"
+//                     />
+//                   </div>
+//                   <div
+//                     className="contact-small-text montserrat-regular"
+//                     data-aos="fade-up"
+//                     data-aos-delay="300"
+//                   >
+//                     or hit me up on
+//                   </div>
+//                   <div
+//                     className="contact-large-text montserrat-regular mb-4"
+//                     data-aos="fade-up"
+//                     data-aos-delay="400"
+//                   >
+//                     Linkedin
+//                     <img
+//                       src={arrow}
+//                       alt=""
+//                       height="30"
+//                       className="ms-2 inline-arrow"
+//                     />
+//                   </div>
+//                 </div>
+
+//                 <div className="contact-me-socials-and-docs d-flex">
+//                   <div className="col-one d-flex flex-column me-5">
+//                     <a
+//                       href="https://github.com/devbagga2675"
+//                       className="footer-link fs-5 fs-md-4 fs-lg-4 montserrat-regular mt-3"
+//                       data-aos="fade-up"
+//                       data-aos-delay="500"
+//                     >
+//                       GITHUB
+//                     </a>
+//                     <a
+//                       href="http://"
+//                       className="footer-link fs-5 fs-md-4 fs-lg-4 montserrat-regular mt-3"
+//                       data-aos="fade-up"
+//                       data-aos-delay="700"
+//                     >
+//                       DRIBBBLE
+//                     </a>
+//                   </div>
+//                   <div className="col-two d-flex flex-column">
+//                     <a
+//                       href="http://"
+//                       className="footer-link fs-5 fs-md-4 fs-lg-4 montserrat-regular mt-3"
+//                       data-aos="fade-up"
+//                       data-aos-delay="800"
+//                     >
+//                       MY WORK
+//                     </a>
+//                     <a
+//                       href="http://"
+//                       className="footer-link fs-5 fs-md-4 fs-lg-4 montserrat-regular mt-3"
+//                       data-aos="fade-up"
+//                       data-aos-delay="900"
+//                     >
+//                       MY RESUME
+//                     </a>
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+//         <div className="page-end-text montserrat-regular fs-6  text-center bottom-0 mb-3 w-100">
+//           This website was designed in FIGMA, and developed using REACTJS and
+//           it's compatible libraries.
+//           <br />
+//           The icons are from icons8
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
 import React, { useEffect, useRef, useState } from "react";
 import logo from "./assets/logo-dark-svg.svg";
 import backtotop from "./assets/backtotop.svg";
 import navcross from "./assets/navcross.svg";
-import Marquee from "react-fast-marquee";
 import heroimage from "./assets/hero-image.svg";
 import html5 from "./assets/Html 5.svg";
 import css3 from "./assets/CSS3.svg";
@@ -20,7 +584,6 @@ import git from "./assets/Git.svg";
 import github from "./assets/GitHub.svg";
 import arrow from "./assets/arrow.svg";
 import sayhi from "./assets/sayhi.svg";
-import githubicon from "./assets/icons8-github.svg";
 import AOS from "aos";
 import { useLoco } from "./hooks/useLoco";
 import "aos/dist/aos.css";
@@ -28,9 +591,414 @@ import AnimatedCursor from "react-animated-cursor";
 import "animate.css";
 import "./App.css";
 
-function App() {
+// Navbar Component
+const Navbar = ({ isNavOpen, toggleNav, topcontentRef, navCrossRef }) => (
+  <div className="top-content w-100 top-0 d-flex justify-content-between position-fixed">
+    <div className="top-content-left animate__animated animate__slideInRight">
+      <div className="nav-logo-bg d-flex justify-content-center align-items-center">
+        <img className="logo-svg" src={logo} alt="logo" />
+      </div>
+    </div>
+    <div
+      className={`top-content-right bg bg-dark ${isNavOpen ? "nav-open" : ""}`}
+      ref={topcontentRef}
+    >
+      <div className="top-nav-content d-flex flex-column justify-content-end align-items-end m-3">
+        <div className="navbar-cross" onClick={toggleNav}>
+          <img
+            src={navcross}
+            className="navcross-svg"
+            alt="navcross"
+            ref={navCrossRef}
+          />
+        </div>
+        <ul className="top-nav flex-column d-flex align-items-stretch montserrat-regular text-end mt-3">
+          <li className="nav-item d-flex justify-content-end align-items-center position-relative">
+            <div className="nav-bg-div position-absolute"></div>
+            <div className="nav-link ms-1 position-relative z-index-1">
+              <a href="#contact">Reach Out</a>
+            </div>
+          </li>
+          <li className="nav-item d-flex justify-content-end align-items-center position-relative">
+            <div className="nav-bg-div position-absolute"></div>
+            <div className="nav-link ms-1 position-relative z-index-1">
+              <a href="#projects">See My Work</a>
+            </div>
+          </li>
+          <li className="nav-item d-flex justify-content-end align-items-center position-relative">
+            <div className="nav-bg-div position-absolute"></div>
+            <div className="nav-link ms-1 position-relative z-index-1">
+              Resume
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+);
 
-  const [isNavOpen, setisNavOpen] = useState(true);
+// BackToTop Component
+const BackToTop = ({ backtotopRef }) => (
+  <div className="back-to-top-div position-fixed bottom-0 end-0 m-3">
+    <img
+      className="back-to-top"
+      src={backtotop}
+      alt="backtotop"
+      ref={backtotopRef}
+    />
+  </div>
+);
+
+// LandingSection Component
+const LandingSection = () => (
+  <section
+    id="landing-section"
+    className="w-100 d-flex justify-content-center align-items-center"
+  >
+    <div className="landing-content container-fluid">
+      <div className="title-text container-fluid d-flex flex-column align-items-center justify-content-center">
+        <div
+          className="social-links d-flex font-thunder-bold-lc gap-5 mb-5 fast-scroll animate__animated animate__fadeInDownBig"
+          id="fastScroll"
+        >
+          <div className="social-tile d-flex align-items-end">
+            <div className="social-tile-text fs-2">
+              <a
+                href="https://github.com/devbagga2675"
+                style={{ textDecorationLine: "none", color: "white" }}
+              >
+                GITHUB
+              </a>
+            </div>
+            <div className="social-tile-icon">
+              <img src={github} alt="" height={40} />
+            </div>
+          </div>
+          <div className="social-tile d-flex align-items-end">
+            <div className="social-tile-text fs-2">
+              <a
+                href="https://www.linkedin.com/in/dev-bagga-458879288/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecorationLine: "none", color: "white" }}
+              >
+                LINKEDIN
+              </a>
+            </div>
+            <div className="social-tile-icon">
+              <img
+                width="40"
+                height="40"
+                src="https://img.icons8.com/color/40/linkedin.png"
+                alt="linkedin"
+              />
+            </div>
+          </div>
+          <div className="social-tile d-flex align-items-end">
+            <div className="social-tile-text fs-2">
+              <a
+                href="https://dribbble.com/devdesigns26"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecorationLine: "none", color: "white" }}
+              >
+                DRIBBBLE
+              </a>
+            </div>
+            <div className="social-tile-icon">
+              <img
+                width="40"
+                height="40"
+                src="https://img.icons8.com/ultraviolet/40/dribbble.png"
+                alt="dribbble"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="title-text-heading font-thunder-black-lc text-center w-100">
+          DEV BAGGA
+        </div>
+        <div className="title-text-sub-heading w-100 d-flex justify-content-between caveat-fourHun align-items-center row-wrap w-100">
+          <div className="sub-heading-text d-flex flex-wrap animate__animated animate__fadeInLeft">
+            <div className="sub-heading-div me-4 d-flex align-items-center position-relative">
+              <div className="sub-heading-bg-div position-absolute"></div>
+              <div className="sub-heading-text ms-4 position-relative z-index-1">
+                UI/UX Designer
+              </div>
+            </div>
+            <div className="sub-heading-div me-4 d-flex align-items-center position-relative">
+              <div className="sub-heading-bg-div position-absolute"></div>
+              <div className="sub-heading-text ms-4 position-relative z-index-1">
+                Frontend Developer
+              </div>
+            </div>
+          </div>
+          <div className="sub-heading-graphics font-thunder-black-lc animate__animated animate__fadeInRight">
+            {"</>"}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// AboutMeSection Component
+const AboutMeSection = () => {
+  const skills = [
+    html5,
+    css3,
+    javascript,
+    bootstrap,
+    react,
+    nodeJs,
+    figma,
+    canva,
+    firebase,
+    git,
+    github,
+    mysql,
+    java,
+    cProgramming,
+  ];
+
+  return (
+    <section id="aboutme" className="content-section container-fluid mx-1 p-2">
+      <div
+        className="title-text content-heading font-thunder-black-lc text-center"
+        data-aos="fade-up"
+        data-aos-delay="50"
+      >
+        BUILDING MODERN USER EXPERIENCES
+      </div>
+      <div className="about-me-content d-flex justify-content-center align-items-center mt-2 flex-wrap">
+        <div
+          className="about-me-content-text d-flex flex-column justify-content-end mx-3 mb-5 text-center"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <div className="about-me-content-text-1 caveat-fourHun mt-5">
+            Hello there! I'm Dev, an undergrad student. I like designing,
+            developing, watching movies, and sketching.
+          </div>
+          <div
+            className="about-me-content-text-2 montserrat-regular mt-5"
+            data-aos="fade-up"
+            data-aos-delay="150"
+          >
+            “Not a traditional graphic designer focused solely on visuals but I
+            enjoy sketching and crafting clean, minimalist interfaces.”
+          </div>
+          <div
+            className="about-me-content-text-3 montserrat-regular mt-5"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            “Dev is in my name, so it's no surprise I love developing just as
+            much as designing.”
+          </div>
+        </div>
+        <img
+          src={heroimage}
+          alt=""
+          className="about-me-content-image"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        />
+      </div>
+      <div className="skillset-content" data-aos="fade-up" data-aos-delay="400">
+        <div className="skillset-heading text-center font-thunder-extra-bold-lc">
+          SKILLSET
+        </div>
+        <div className="row skillset-tiles d-flex flex-wrap justify-content-center align-items-center">
+          {skills.map((skill, index) => (
+            <img
+              key={index}
+              src={skill}
+              alt={skill}
+              className="skillset-tile my-2"
+              data-aos="fade-up"
+              data-aos-delay={index * 50 + 300}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ProjectsSection Component
+const ProjectsSection = () => (
+  <section id="projects" className="content-section container-fluid mx-1 p-2">
+    <div className="container-fluid my-work-section py-5">
+      <div className="d-flex flex-column">
+        <div className="my-3 project-div" data-aos="fade-right" data-aos-delay="100">
+          <div className="project-heading d-flex gap-5 project-container">
+            <h3 className="font-thunder-black-lc title-text text-white project-title">
+              <a
+                className="footer-link"
+                href="https://www.figma.com/proto/qUoEu889rebP5uSya0jz2k/Untitled?page-id=0%3A1&node-id=1001-15&viewport=1314%2C774%2C0.32&t=ACNpPr8LwecGmP3C-1&scaling=scale-down&content-scaling=fixed"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                VOYA
+              </a>
+            </h3>
+            <img src={arrow} alt="" className="project-arrow" />
+          </div>
+          <p className="montserrat-regular text-dark-teal">2024</p>
+        </div>
+        <div className="my-3 project-div" data-aos="fade-right" data-aos-delay="150">
+          <div className="project-heading d-flex gap-5 project-container">
+            <h3 className="font-thunder-black-lc title-text text-white project-title">
+              <a
+                className="footer-link"
+                href="https://optolinq.online/#homepage"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                optolinq.online
+              </a>
+            </h3>
+            <img src={arrow} alt="" className="project-arrow" />
+          </div>
+          <p className="montserrat-regular text-dark-teal">Internship Project</p>
+        </div>
+        <div className="my-3 project-div" data-aos="fade-right" data-aos-delay="200">
+          <div className="project-heading d-flex gap-5 project-container">
+            <h3 className="font-thunder-black-lc title-text text-white project-title">
+              PORTFOLIO
+            </h3>
+            <img src={arrow} alt="" className="project-arrow" />
+          </div>
+          <p className="montserrat-regular text-dark-teal">2025</p>
+        </div>
+        <div className="my-3 project-div" data-aos="fade-right" data-aos-delay="250">
+          <div className="project-heading d-flex gap-5 project-container">
+            <h3 className="font-thunder-black-lc title-text text-white project-title">
+              <a
+                className="footer-link"
+                href="https://dribbble.com/devdesigns26"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                100 DAYS OF DESIGN
+              </a>
+            </h3>
+            <img src={arrow} alt="" className="project-arrow" />
+          </div>
+          <p className="montserrat-regular text-dark-teal">Ongoing</p>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// ContactSection Component
+const ContactSection = () => (
+  <section
+    id="contact"
+    className="content-section container-fluid mx-1 p-2"
+    style={{ height: "100vh", width: "100vw" }}
+  >
+    <div className="contact-section-div h-100 w-100 d-flex justify-content-center align-items-center position-relative">
+      <div className="contact-content d-flex flex-wrap justify-content-start m-3">
+        <div
+          className="sayhi-image me-5 ms-3"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+        >
+          <img src={sayhi} alt="" height="400" />
+        </div>
+        <div className="contact-text-content p-3 d-flex flex-column justify-content-start">
+          <div className="contact-me-text-message-links">
+            <div
+              className="contact-small-text montserrat-regular"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              email me at
+            </div>
+            <div
+              className="contact-large-text montserrat-regular mb-4"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              devbagga2675@outlook
+              <img src={arrow} alt="" height="30" className="ms-2 inline-arrow" />
+            </div>
+            <div
+              className="contact-small-text montserrat-regular"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              or hit me up on
+            </div>
+            <div
+              className="contact-large-text montserrat-regular mb-4"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              Linkedin
+              <img src={arrow} alt="" height="30" className="ms-2 inline-arrow" />
+            </div>
+          </div>
+          <div className="contact-me-socials-and-docs d-flex">
+            <div className="col-one d-flex flex-column me-5">
+              <a
+                href="https://github.com/devbagga2675"
+                className="footer-link fs-5 fs-md-4 fs-lg-4 montserrat-regular mt-3"
+                data-aos="fade-up"
+                data-aos-delay="500"
+              >
+                GITHUB
+              </a>
+              <a
+                href="http://"
+                className="footer-link fs-5 fs-md-4 fs-lg-4 montserrat-regular mt-3"
+                data-aos="fade-up"
+                data-aos-delay="700"
+              >
+                DRIBBBLE
+              </a>
+            </div>
+            <div className="col-two d-flex flex-column">
+              <a
+                href="http://"
+                className="footer-link fs-5 fs-md-4 fs-lg-4 montserrat-regular mt-3"
+                data-aos="fade-up"
+                data-aos-delay="800"
+              >
+                MY WORK
+              </a>
+              <a
+                href="http://"
+                className="footer-link fs-5 fs-md-4 fs-lg-4 montserrat-regular mt-3"
+                data-aos="fade-up"
+                data-aos-delay="900"
+              >
+                MY RESUME
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// Footer Component
+const Footer = () => (
+  <div className="page-end-text montserrat-regular fs-6 text-center bottom-0 mb-3 w-100">
+    This website was designed in FIGMA, and developed using REACTJS and it's
+    compatible libraries.
+    <br />
+    The icons are from icons8
+  </div>
+);
+
+// Main App Component
+function App() {
+  const [isNavOpen, setIsNavOpen] = useState(true);
   const backtotopRef = useRef();
   const topcontentRef = useRef();
   const navCrossRef = useRef();
@@ -38,69 +1006,47 @@ function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
-    AOS.init({
-      once: "true",
-    });
+    AOS.init({ once: "true" });
 
-    const timeoutId = setTimeout(() => {
-      setisNavOpen(false);
-    }, 3000);
+    const timeoutId = setTimeout(() => setIsNavOpen(false), 3000);
 
     const backtotopbutton = backtotopRef.current;
     const topcontentright = topcontentRef.current;
     const navCross = navCrossRef.current;
     const fastScrollElement = document.getElementById("fastScroll");
 
-    if (
-      !backtotopbutton ||
-      !topcontentright ||
-      !navCross ||
-      !fastScrollElement
-    ) {
+    if (!backtotopbutton || !topcontentright || !navCross || !fastScrollElement) {
       console.error("One or more elements not found");
-      return () => clearTimeout(timeoutId); //clear timeout on unmount
+      return () => clearTimeout(timeoutId);
     }
 
-    const handleBackToTop = () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    };
-
+    const handleBackToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
     const handleScroll = () => {
-      if (window.scrollY > 100) {
-        backtotopbutton.style.transform = "rotate(0deg)";
-      } else {
-        backtotopbutton.style.transform = "rotate(180deg)";
-      }
+      backtotopbutton.style.transform =
+        window.scrollY > 100 ? "rotate(0deg)" : "rotate(180deg)";
     };
-
     const handleSpeedScroll = () => {
       let scrollPosition = window.scrollY;
-      fastScrollElement.style.transform = `translateY(${-(
-        scrollPosition * 0.4
-      )}px)`;
+      fastScrollElement.style.transform = `translateY(${-scrollPosition * 0.4}px)`;
     };
 
     backtotopbutton.addEventListener("click", handleBackToTop);
-    // navCross.addEventListener('click', toggleNav); // assuming toggleNav is defined elsewhere
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("scroll", handleSpeedScroll);
 
     return () => {
       clearTimeout(timeoutId);
       backtotopbutton.removeEventListener("click", handleBackToTop);
-      // navCross.removeEventListener('click', toggleNav);
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("scroll", handleSpeedScroll);
     };
-  }, []); // Dependency array is empty, as intended
+  }, []);
 
-  const toggleNav = () => {
-    setisNavOpen(!isNavOpen);
-  };
+  const toggleNav = () => setIsNavOpen(!isNavOpen);
 
   return (
     <div className="app position-relative">
-      {window.innerWidth < "768px" ? (
+      {window.innerWidth < 768 ? (
         ""
       ) : (
         <AnimatedCursor
@@ -116,447 +1062,23 @@ function App() {
             backgroundColor: "var(--cursor-color)",
             content: "</>",
           }}
-          outerStyle={{
-            backgroundColor: "#ffffff",
-            mixBlendMode: "exclusion",
-          }}
+          outerStyle={{ backgroundColor: "#ffffff", mixBlendMode: "exclusion" }}
         />
       )}
       <div className="bg-div position-fixed"></div>
-      <div className="top-content w-100 top-0 d-flex justify-content-between position-fixed ">
-        <div className="top-content-left animate__animated animate__slideInRight">
-          <div className="nav-logo-bg d-flex justify-content-center align-items-center">
-            <img className="logo-svg" src={logo} alt="logo"></img>
-          </div>
-        </div>
-        <div
-          className={`top-content-right bg bg-dark ${
-            isNavOpen ? "nav-open" : ""
-          }`}
-          ref={topcontentRef}
-        >
-          <div className="top-nav-content d-flex flex-column justify-content-end align-items-end m-3">
-            <div className="navbar-cross" onClick={toggleNav}>
-              <img
-                src={navcross}
-                className="navcross-svg"
-                alt="navcross"
-                ref={navCrossRef}
-              />
-            </div>
-            <ul className="top-nav flex-column d-flex align-items-stretch montserrat-regular text-end mt-3">
-              <li className="nav-item d-flex justify-content-end align-items-center position-relative">
-                <div className="nav-bg-div position-absolute"></div>
-                <div className="nav-link ms-1 position-relative z-index-1">
-                  <a href="#contact">Reach Out</a>
-                </div>
-              </li>
-              <li className="nav-item d-flex justify-content-end align-items-center position-relative">
-                <div className="nav-bg-div position-absolute"></div>
-                <div className="nav-link ms-1 position-relative z-index-1">
-                  <a href="#projects">See My Work</a>
-                </div>
-              </li>
-              <li className="nav-item d-flex justify-content-end align-items-center position-relative">
-                <div className="nav-bg-div position-absolute"></div>
-                <div className="nav-link ms-1 position-relative z-index-1">
-                  Resume
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div className="back-to-top-div position-fixed bottom-0 end-0 m-3">
-        <img
-          className="back-to-top"
-          src={backtotop}
-          alt="backtotop"
-          srcSet=""
-          ref={backtotopRef}
-        />
-      </div>
+      <Navbar
+        isNavOpen={isNavOpen}
+        toggleNav={toggleNav}
+        topcontentRef={topcontentRef}
+        navCrossRef={navCrossRef}
+      />
+      <BackToTop backtotopRef={backtotopRef} />
       <div className="web-page-content d-flex flex-column align-items-center position-relative z-index-0">
-        <section
-          id="landing-section"
-          className="w-100 d-flex justify-content-center align-items-center"
-        >
-          <div className="landing-content container-fluid">
-            <div className="title-text container-fluid d-flex flex-column align-items-center justify-content-center">
-              <div
-                className="social-links d-flex font-thunder-bold-lc gap-5 mb-5 fast-scroll animate__animated animate__fadeInDownBig"
-                id="fastScroll"
-              >
-                <div className="social-tile d-flex align-items-end ">
-                  <div className="social-tile-text fs-2">
-                    <a
-                      href="https://github.com/devbagga2675"
-                      style={{ textDecorationLine: "none", color: "white" }}
-                    >
-                      GITHUB
-                    </a>
-                  </div>
-                  <div className="social-tile-icon">
-                    <img src={github} alt="" srcset="" height={40} />
-                  </div>
-                </div>
-                <div className="social-tile d-flex align-items-end">
-                  <div className="social-tile-text fs-2">
-                    <a
-                      href="https://www.linkedin.com/in/dev-bagga-458879288/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ textDecorationLine: "none", color: "white" }}
-                    >
-                      LINKEDIN
-                    </a>
-                  </div>
-                  <div className="social-tile-icon">
-                    <img
-                      width="40"
-                      height="40"
-                      src="https://img.icons8.com/color/40/linkedin.png"
-                      alt="linkedin"
-                    />
-                  </div>
-                </div>
-                <div className="social-tile d-flex align-items-end">
-                  <div className="social-tile-text fs-2">
-                    {" "}
-                    <a
-                      href="https://dribbble.com/devdesigns26"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ textDecorationLine: "none", color: "white" }}
-                    >
-                      DRIBBBLE
-                    </a>
-                  </div>
-                  <div className="social-tile-icon">
-                    <img
-                      width="40"
-                      height="40"
-                      src="https://img.icons8.com/ultraviolet/40/dribbble.png"
-                      alt="dribbble"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="title-text-heading font-thunder-black-lc text-center w-100">
-                DEV BAGGA
-              </div>
-              <div className="title-text-sub-heading w-100 d-flex justify-content-between caveat-fourHun align-items-center row-wrap w-100 ">
-                <div className="sub-heading-text d-flex flex-wrap  animate__animated animate__fadeInLeft">
-                  <div className="sub-heading-div me-4  d-flex align-items-center position-relative">
-                    <div className="sub-heading-bg-div position-absolute "></div>
-                    <div className="sub-heading-text ms-4 position-relative z-index-1">
-                      UI/UX Designer
-                    </div>
-                  </div>
-                  <div className="sub-heading-div me-4 d-flex align-items-center position-relative">
-                    <div className="sub-heading-bg-div position-absolute"></div>
-                    <div className="sub-heading-text ms-4 position-relative z-index-1">
-                      Frontend Developer
-                    </div>
-                  </div>
-                </div>
-                <div className="sub-heading-graphics font-thunder-black-lc animate__animated animate__fadeInRight">
-                  {"</>"}
-                </div>
-              </div>
-            </div>
-
-       
-          </div>
-        </section>
-        <section
-          id="aboutme"
-          className="content-section container-fluid mx-1 p-2"
-        >
-          <div
-            className="title-text content-heading font-thunder-black-lc text-center"
-            data-aos="fade-up"
-            data-aos-delay="50"
-          >
-            BUILDING MODERN USER EXPERIENCES
-          </div>
-
-          <div className="about-me-content d-flex justify-content-center align-items-center mt-2 flex-wrap">
-            <div
-              className="about-me-content-text d-flex flex-column justify-content-end mx-3 mb-5 text-center"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
-              <div className="about-me-content-text-1 caveat-fourHun mt-5">
-                Hello there! I'm Dev, an undergrad student. I like designing,
-                developing, watching movies, and sketching.
-              </div>
-              <div
-                className="about-me-content-text-2 montserrat-regular mt-5"
-                data-aos="fade-up"
-                data-aos-delay="150"
-              >
-                “Not a traditional graphic designer focused solely on visuals
-                but I enjoy sketching and crafting clean, minimalist
-                interfaces.”
-              </div>
-              <div
-                className="about-me-content-text-3 montserrat-regular mt-5"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
-                “Dev is in my name, so it's no surprise I love developing just
-                as much as designing.”
-              </div>
-            </div>
-
-            <img
-              src={heroimage}
-              alt=""
-              className="about-me-content-image"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            />
-          </div>
-
-          <div
-            className="skillset-content"
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-            <div className="skillset-heading text-center font-thunder-extra-bold-lc">
-              SKILLSET
-            </div>
-            <div className="row skillset-tiles d-flex flex-wrap justify-content-center align-items-center">
-              {[
-                html5,
-                css3,
-                javascript,
-                bootstrap,
-                react,
-                nodeJs,
-                figma,
-                canva,
-                firebase,
-                git,
-                github,
-                mysql,
-                java,
-                cProgramming,
-              ].map((skill, index) => (
-                <img
-                  key={index}
-                  src={skill}
-                  alt={skill}
-                  className="skillset-tile my-2"
-                  data-aos="fade-up"
-                  data-aos-delay={index * 50 + 300} // Starts at 500ms, increments by 100ms
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section
-          id="projects"
-          className="content-section container-fluid mx-1 p-2"
-        >
-          <div className="container-fluid my-work-section py-5">
-            <div class="d-flex flex-column">
-              <div
-                class="my-3 project-div "
-                data-aos="fade-right"
-                data-aos-delay="100"
-              >
-                <div class="project-heading d-flex gap-5 project-container">
-                  {" "}
-                  <h3 class="font-thunder-black-lc title-text text-white project-title">
-                    <a
-                      className="footer-link"
-                      href="https://www.figma.com/proto/qUoEu889rebP5uSya0jz2k/Untitled?page-id=0%3A1&node-id=1001-15&viewport=1314%2C774%2C0.32&t=ACNpPr8LwecGmP3C-1&scaling=scale-down&content-scaling=fixed"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      VOYA
-                    </a>
-                  </h3>
-                  <img src={arrow} alt="" class="project-arrow" />
-                </div>
-                <p class="montserrat-regular text-dark-teal">2024</p>
-              </div>
-
-              <div
-                class="my-3 project-div"
-                ppo8
-                data-aos="fade-right"
-                data-aos-delay="150"
-              >
-                <div class="project-heading d-flex gap-5 project-container">
-                  <h3 class="font-thunder-black-lc title-text text-white project-title">
-                  <a
-                      className="footer-link"
-                      href="https://optolinq.online/#homepage"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      optolinq.online
-                    </a>
-                  </h3>
-                  <img src={arrow} alt="" class="project-arrow" />
-                </div>
-                <p class="montserrat-regular text-dark-teal">
-                  Internship Project
-                </p>
-              </div>
-
-              <div
-                class="my-3 project-div"
-                data-aos="fade-right"
-                data-aos-delay="200"
-              >
-                <div class="project-heading d-flex gap-5 project-container">
-                  {" "}
-                  <h3 class="font-thunder-black-lc title-text text-white project-title">
-                    PORTFOLIO
-                  </h3>
-                  <img src={arrow} alt="" class="project-arrow" />
-                </div>
-                <p class="montserrat-regular text-dark-teal">2025</p>
-              </div>
-
-              <div
-                class="my-3 project-div"
-                data-aos="fade-right"
-                data-aos-delay="250"
-              >
-                <div class="project-heading d-flex gap-5 project-container">
-                  {" "}
-                  <h3 class="font-thunder-black-lc title-text text-white project-title">
-                    <a
-                      className="footer-link"
-                      href="https://dribbble.com/devdesigns26"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      100 DAYS OF DESIGN
-                    </a>
-                  </h3>
-                  <img src={arrow} alt="" class="project-arrow" />
-                </div>
-                <p class="montserrat-regular text-dark-teal">Ongoing</p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section
-          id="contact"
-          className="content-section container-fluid mx-1 p-2"
-          style={{ height: "100vh", width: "100vw" }}
-        >
-          <div className="contact-section-div h-100 w-100 d-flex justify-content-center align-items-center position-relative">
-            <div className="contact-content d-flex flex-wrap justify-content-start m-3">
-              <div
-                className="sayhi-image me-5 ms-3"
-                data-aos="fade-left"
-                data-aos-duration="1000"
-              >
-                <img src={sayhi} alt="" height="400" />
-              </div>
-
-              <div className="contact-text-content p-3 d-flex flex-column justify-content-start">
-                <div className="contact-me-text-message-links">
-                  {/* Each text block fades up one by one */}
-                  <div
-                    className="contact-small-text montserrat-regular"
-                    data-aos="fade-up"
-                    data-aos-delay="100"
-                  >
-                    email me at
-                  </div>
-                  <div
-                    className="contact-large-text montserrat-regular mb-4"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                  >
-                    devbagga2675@outlook
-                    <img
-                      src={arrow}
-                      alt=""
-                      height="30"
-                      className="ms-2 inline-arrow"
-                    />
-                  </div>
-                  <div
-                    className="contact-small-text montserrat-regular"
-                    data-aos="fade-up"
-                    data-aos-delay="300"
-                  >
-                    or hit me up on
-                  </div>
-                  <div
-                    className="contact-large-text montserrat-regular mb-4"
-                    data-aos="fade-up"
-                    data-aos-delay="400"
-                  >
-                    Linkedin
-                    <img
-                      src={arrow}
-                      alt=""
-                      height="30"
-                      className="ms-2 inline-arrow"
-                    />
-                  </div>
-                </div>
-
-                <div className="contact-me-socials-and-docs d-flex">
-                  <div className="col-one d-flex flex-column me-5">
-                    <a
-                      href="https://github.com/devbagga2675"
-                      className="footer-link fs-5 fs-md-4 fs-lg-4 montserrat-regular mt-3"
-                      data-aos="fade-up"
-                      data-aos-delay="500"
-                    >
-                      GITHUB
-                    </a>
-                    <a
-                      href="http://"
-                      className="footer-link fs-5 fs-md-4 fs-lg-4 montserrat-regular mt-3"
-                      data-aos="fade-up"
-                      data-aos-delay="700"
-                    >
-                      DRIBBBLE
-                    </a>
-                  </div>
-                  <div className="col-two d-flex flex-column">
-                    <a
-                      href="http://"
-                      className="footer-link fs-5 fs-md-4 fs-lg-4 montserrat-regular mt-3"
-                      data-aos="fade-up"
-                      data-aos-delay="800"
-                    >
-                      MY WORK
-                    </a>
-                    <a
-                      href="http://"
-                      className="footer-link fs-5 fs-md-4 fs-lg-4 montserrat-regular mt-3"
-                      data-aos="fade-up"
-                      data-aos-delay="900"
-                    >
-                      MY RESUME
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <div className="page-end-text montserrat-regular fs-6  text-center bottom-0 mb-3 w-100">
-          This website was designed in FIGMA, and developed using REACTJS and
-          it's compatible libraries.
-          <br />
-          The icons are from icons8
-        </div>
+        <LandingSection />
+        <AboutMeSection />
+        <ProjectsSection />
+        <ContactSection />
+        <Footer />
       </div>
     </div>
   );
