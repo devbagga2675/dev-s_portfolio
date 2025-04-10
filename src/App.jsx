@@ -1006,7 +1006,22 @@ function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
-    AOS.init({ once: "true" });
+    // Initialize AOS with additional options for better reliability
+    AOS.init({
+      once: true, // Animations happen only once
+      duration: 800, // Default duration for smoother transitions
+      offset: 100, // Trigger animations 100px before element enters viewport
+    });
+
+    // Wait for the DOM to fully load and refresh AOS
+    const handleLoad = () => {
+      AOS.refreshHard(); // Force AOS to recalculate positions
+    };
+
+    // Add a slight delay to ensure all components are mounted
+    const refreshTimeout = setTimeout(() => {
+      AOS.refresh();
+    }, 100);
 
     const timeoutId = setTimeout(() => setIsNavOpen(false), 3000);
 
@@ -1017,7 +1032,11 @@ function App() {
 
     if (!backtotopbutton || !topcontentright || !navCross || !fastScrollElement) {
       console.error("One or more elements not found");
-      return () => clearTimeout(timeoutId);
+      return () => {
+        clearTimeout(timeoutId);
+        clearTimeout(refreshTimeout);
+        window.removeEventListener("load", handleLoad);
+      };
     }
 
     const handleBackToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
@@ -1033,12 +1052,15 @@ function App() {
     backtotopbutton.addEventListener("click", handleBackToTop);
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("scroll", handleSpeedScroll);
+    window.addEventListener("load", handleLoad);
 
     return () => {
       clearTimeout(timeoutId);
+      clearTimeout(refreshTimeout);
       backtotopbutton.removeEventListener("click", handleBackToTop);
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("scroll", handleSpeedScroll);
+      window.removeEventListener("load", handleLoad);
     };
   }, []);
 
