@@ -6,6 +6,7 @@
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "cra-template": "1.2.0",
+    "framer-motion": "^12.6.3",
     "locomotive-scroll": "^4.1.4",
     "react": "^19.0.0",
     "react-animated-cursor": "^2.11.2",

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import logo from "./assets/logo-dark-svg.svg";
 import backtotop from "./assets/backtotop.svg";
 import navcross from "./assets/navcross.svg";
@@ -19,13 +20,11 @@ import git from "./assets/Git.svg";
 import github from "./assets/GitHub.svg";
 import arrow from "./assets/arrow.svg";
 import sayhi from "./assets/sayhi.svg";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import AnimatedCursor from "react-animated-cursor";
 import "animate.css";
 import "./App.css";
 
-// Navbar Component
+// Navbar Component 
 const Navbar = ({ isNavOpen, toggleNav, topcontentRef, navCrossRef }) => (
   <div className="top-content w-100 top-0 d-flex justify-content-between position-fixed">
     <div className="top-content-left animate__animated animate__slideInRight">
@@ -71,7 +70,7 @@ const Navbar = ({ isNavOpen, toggleNav, topcontentRef, navCrossRef }) => (
   </div>
 );
 
-// BackToTop Component
+// BackToTop Component 
 const BackToTop = ({ backtotopRef }) => (
   <div className="back-to-top-div position-fixed bottom-0 end-0 m-3">
     <img
@@ -83,7 +82,7 @@ const BackToTop = ({ backtotopRef }) => (
   </div>
 );
 
-// LandingSection Component
+// LandingSection Component 
 const LandingSection = () => (
   <section
     id="landing-section"
@@ -176,7 +175,7 @@ const LandingSection = () => (
   </section>
 );
 
-// AboutMeSection Component
+// AboutMeSection Component 
 const AboutMeSection = () => {
   const skills = [
     html5,
@@ -197,75 +196,99 @@ const AboutMeSection = () => {
 
   return (
     <section id="aboutme" className="content-section container-fluid mx-1 p-2">
-      <div
+      <motion.div
         className="title-text content-heading font-thunder-black-lc text-center"
-        data-aos="fade-up"
-        data-aos-delay="50"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.4 }} 
       >
         BUILDING MODERN USER EXPERIENCES
-      </div>
+      </motion.div>
       <div className="about-me-content d-flex justify-content-center align-items-center mt-2 flex-wrap">
-        <div
+        <motion.div
           className="about-me-content-text d-flex flex-column justify-content-end mx-3 mb-5 text-center"
-          data-aos="fade-up"
-          data-aos-delay="100"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.05 }} 
         >
           <div className="about-me-content-text-1 caveat-fourHun mt-5">
             Hello there! I'm Dev, an undergrad student. I like designing,
             developing, watching movies, and sketching.
           </div>
-          <div
+          <motion.div
             className="about-me-content-text-2 montserrat-regular mt-5"
-            data-aos="fade-up"
-            data-aos-delay="150"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.4, delay: 0.075 }} 
           >
             “Not a traditional graphic designer focused solely on visuals but I
             enjoy sketching and crafting clean, minimalist interfaces.”
-          </div>
-          <div
+          </motion.div>
+          <motion.div
             className="about-me-content-text-3 montserrat-regular mt-5"
-            data-aos="fade-up"
-            data-aos-delay="200"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.4, delay: 0.1 }} 
           >
             “Dev is in my name, so it's no surprise I love developing just as
             much as designing.”
-          </div>
-        </div>
-        <img
+          </motion.div>
+        </motion.div>
+        <motion.img
           src={heroimage}
           alt=""
           className="about-me-content-image"
-          data-aos="fade-up"
-          data-aos-delay="300"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.15 }} 
         />
       </div>
-      <div className="skillset-content" data-aos="fade-up" data-aos-delay="400">
+      <motion.div
+        className="skillset-content"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.4, delay: 0.2 }} 
+      >
         <div className="skillset-heading text-center font-thunder-extra-bold-lc">
           SKILLSET
         </div>
         <div className="row skillset-tiles d-flex flex-wrap justify-content-center align-items-center">
           {skills.map((skill, index) => (
-            <img
+            <motion.img
               key={index}
               src={skill}
               alt={skill}
               className="skillset-tile my-2"
-              data-aos="fade-up"
-              data-aos-delay={index * 50 + 300}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.4, delay: index * 0.025 + 0.15 }} 
             />
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
 
-// ProjectsSection Component
+// ProjectsSection Component 
 const ProjectsSection = () => (
   <section id="projects" className="content-section container-fluid mx-1 p-2">
     <div className="container-fluid my-work-section py-5">
       <div className="d-flex flex-column">
-        <div className="my-3 project-div" data-aos="fade-right" data-aos-delay="100">
+        <motion.div
+          className="my-3 project-div"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.05 }} 
+        >
           <div className="project-heading d-flex gap-5 project-container">
             <h3 className="font-thunder-black-lc title-text text-white project-title">
               <a
@@ -280,8 +303,14 @@ const ProjectsSection = () => (
             <img src={arrow} alt="" className="project-arrow" />
           </div>
           <p className="montserrat-regular text-dark-teal">2024</p>
-        </div>
-        <div className="my-3 project-div" data-aos="fade-right" data-aos-delay="150">
+        </motion.div>
+        <motion.div
+          className="my-3 project-div"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.075 }} 
+        >
           <div className="project-heading d-flex gap-5 project-container">
             <h3 className="font-thunder-black-lc title-text text-white project-title">
               <a
@@ -296,8 +325,14 @@ const ProjectsSection = () => (
             <img src={arrow} alt="" className="project-arrow" />
           </div>
           <p className="montserrat-regular text-dark-teal">Internship Project</p>
-        </div>
-        <div className="my-3 project-div" data-aos="fade-right" data-aos-delay="200">
+        </motion.div>
+        <motion.div
+          className="my-3 project-div"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.1 }} 
+        >
           <div className="project-heading d-flex gap-5 project-container">
             <h3 className="font-thunder-black-lc title-text text-white project-title">
               PORTFOLIO
@@ -305,8 +340,14 @@ const ProjectsSection = () => (
             <img src={arrow} alt="" className="project-arrow" />
           </div>
           <p className="montserrat-regular text-dark-teal">2025</p>
-        </div>
-        <div className="my-3 project-div" data-aos="fade-right" data-aos-delay="250">
+        </motion.div>
+        <motion.div
+          className="my-3 project-div"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.125 }} 
+        >
           <div className="project-heading d-flex gap-5 project-container">
             <h3 className="font-thunder-black-lc title-text text-white project-title">
               <a
@@ -321,13 +362,13 @@ const ProjectsSection = () => (
             <img src={arrow} alt="" className="project-arrow" />
           </div>
           <p className="montserrat-regular text-dark-teal">Ongoing</p>
-        </div>
+        </motion.div>
       </div>
     </div>
   </section>
 );
 
-// ContactSection Component
+// ContactSection Component 
 const ContactSection = () => (
   <section
     id="contact"
@@ -336,82 +377,100 @@ const ContactSection = () => (
   >
     <div className="contact-section-div h-100 w-100 d-flex justify-content-center align-items-center position-relative">
       <div className="contact-content d-flex flex-wrap justify-content-start m-3">
-        <div
+        <motion.div
           className="sayhi-image me-5 ms-3"
-          data-aos="fade-left"
-          data-aos-duration="1000"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.4 }} 
         >
           <img src={sayhi} alt="" height="400" />
-        </div>
+        </motion.div>
         <div className="contact-text-content p-3 d-flex flex-column justify-content-start">
           <div className="contact-me-text-message-links">
-            <div
+            <motion.div
               className="contact-small-text montserrat-regular"
-              data-aos="fade-up"
-              data-aos-delay="100"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.4, delay: 0.05 }} 
             >
               email me at
-            </div>
-            <div
+            </motion.div>
+            <motion.div
               className="contact-large-text montserrat-regular mb-4"
-              data-aos="fade-up"
-              data-aos-delay="200"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.4, delay: 0.1 }} 
             >
               devbagga2675@outlook
               <img src={arrow} alt="" height="30" className="ms-2 inline-arrow" />
-            </div>
-            <div
+            </motion.div>
+            <motion.div
               className="contact-small-text montserrat-regular"
-              data-aos="fade-up"
-              data-aos-delay="300"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.4, delay: 0.15 }}
             >
               or hit me up on
-            </div>
-            <div
+            </motion.div>
+            <motion.div
               className="contact-large-text montserrat-regular mb-4"
-              data-aos="fade-up"
-              data-aos-delay="400"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
             >
               Linkedin
               <img src={arrow} alt="" height="30" className="ms-2 inline-arrow" />
-            </div>
+            </motion.div>
           </div>
           <div className="contact-me-socials-and-docs d-flex">
             <div className="col-one d-flex flex-column me-5">
-              <a
+              <motion.a
                 href="https://github.com/devbagga2675"
                 className="footer-link fs-5 fs-md-4 fs-lg-4 montserrat-regular mt-3"
-                data-aos="fade-up"
-                data-aos-delay="500"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.4, delay: 0.25 }} 
               >
                 GITHUB
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="http://"
                 className="footer-link fs-5 fs-md-4 fs-lg-4 montserrat-regular mt-3"
-                data-aos="fade-up"
-                data-aos-delay="700"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.4, delay: 0.35 }}
               >
                 DRIBBBLE
-              </a>
+              </motion.a>
             </div>
             <div className="col-two d-flex flex-column">
-              <a
-                href="http://"
+              <motion.a
+                href="#projects"
                 className="footer-link fs-5 fs-md-4 fs-lg-4 montserrat-regular mt-3"
-                data-aos="fade-up"
-                data-aos-delay="800"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.4, delay: 0.4 }} 
               >
                 MY WORK
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="http://"
                 className="footer-link fs-5 fs-md-4 fs-lg-4 montserrat-regular mt-3"
-                data-aos="fade-up"
-                data-aos-delay="900"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.4, delay: 0.45 }} 
               >
                 MY RESUME
-              </a>
+              </motion.a>
             </div>
           </div>
         </div>
@@ -420,7 +479,7 @@ const ContactSection = () => (
   </section>
 );
 
-// Footer Component
+// Footer Component 
 const Footer = () => (
   <div className="page-end-text montserrat-regular fs-6 text-center bottom-0 mb-3 w-100">
     This website was designed in FIGMA, and developed using REACTJS and it's
@@ -430,7 +489,7 @@ const Footer = () => (
   </div>
 );
 
-// Main App Component
+// Main App Component 
 function App() {
   const [isNavOpen, setIsNavOpen] = useState(true);
   const backtotopRef = useRef();
@@ -438,8 +497,6 @@ function App() {
   const navCrossRef = useRef();
 
   useEffect(() => {
-    AOS.init({ once: "true" });
-
     const timeoutId = setTimeout(() => setIsNavOpen(false), 3000);
 
     const backtotopbutton = backtotopRef.current;
