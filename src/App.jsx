@@ -23,6 +23,7 @@ import sayhi from "./assets/sayhi.svg";
 import AnimatedCursor from "react-animated-cursor";
 import "animate.css";
 import "./App.css";
+import { Analytics } from '@vercel/analytics/react';
 
 // Navbar Component 
 const Navbar = ({ isNavOpen, toggleNav, topcontentRef, navCrossRef }) => (
@@ -282,6 +283,28 @@ const ProjectsSection = () => (
   <section id="projects" className="content-section container-fluid mx-1 p-2">
     <div className="container-fluid my-work-section py-5">
       <div className="d-flex flex-column">
+                <motion.div
+          className="my-3 project-div"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.125 }} 
+        >
+          <div className="project-heading d-flex gap-5 project-container">
+            <h3 className="font-thunder-black-lc title-text text-white project-title">
+              <a
+                className="footer-link"
+                href="https://dribbble.com/shots/26155879"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Auxitech
+              </a>
+            </h3>
+            <img src={arrow} alt="" className="project-arrow" />
+          </div>
+          <p className="montserrat-regular text-dark-teal">[2025] Design Project</p>
+        </motion.div>
         <motion.div
           className="my-3 project-div"
           initial={{ opacity: 0, x: -50 }}
@@ -302,7 +325,7 @@ const ProjectsSection = () => (
             </h3>
             <img src={arrow} alt="" className="project-arrow" />
           </div>
-          <p className="montserrat-regular text-dark-teal">2024</p>
+          <p className="montserrat-regular text-dark-teal">[2024] Design Project</p>
         </motion.div>
         <motion.div
           className="my-3 project-div"
@@ -324,7 +347,7 @@ const ProjectsSection = () => (
             </h3>
             <img src={arrow} alt="" className="project-arrow" />
           </div>
-          <p className="montserrat-regular text-dark-teal">Internship Project</p>
+          <p className="montserrat-regular text-dark-teal">[2024] Internship Project</p>
         </motion.div>
         <motion.div
           className="my-3 project-div"
@@ -339,7 +362,7 @@ const ProjectsSection = () => (
             </h3>
             <img src={arrow} alt="" className="project-arrow" />
           </div>
-          <p className="montserrat-regular text-dark-teal">2025</p>
+          <p className="montserrat-regular text-dark-teal">[2025] Personal Project</p>
         </motion.div>
         <motion.div
           className="my-3 project-div"
@@ -361,7 +384,7 @@ const ProjectsSection = () => (
             </h3>
             <img src={arrow} alt="" className="project-arrow" />
           </div>
-          <p className="montserrat-regular text-dark-teal">Ongoing</p>
+          <p className="montserrat-regular text-dark-teal">Ongoing design practice</p>
         </motion.div>
       </div>
     </div>
@@ -535,6 +558,7 @@ function App() {
 
   return (
     <div className="app position-relative">
+      <Analytics/>
       {window.innerWidth < 768 ? (
         ""
       ) : (
