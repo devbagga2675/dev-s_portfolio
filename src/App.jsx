@@ -18,14 +18,16 @@ import mysql from "./assets/MySQL Logo.svg";
 import cProgramming from "./assets/C Programming.svg";
 import git from "./assets/Git.svg";
 import github from "./assets/GitHub.svg";
+import expo from "./assets/icons8-expo.svg";
+import tailwind from "./assets/icons8-tailwind-css.svg";
 import arrow from "./assets/arrow.svg";
 import sayhi from "./assets/sayhi.svg";
 import AnimatedCursor from "react-animated-cursor";
 import "animate.css";
 import "./App.css";
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
 
-// Navbar Component 
+// Navbar Component
 const Navbar = ({ isNavOpen, toggleNav, topcontentRef, navCrossRef }) => (
   <div className="top-content w-100 top-0 d-flex justify-content-between position-fixed">
     <div className="top-content-left animate__animated animate__slideInRight">
@@ -71,7 +73,7 @@ const Navbar = ({ isNavOpen, toggleNav, topcontentRef, navCrossRef }) => (
   </div>
 );
 
-// BackToTop Component 
+// BackToTop Component
 const BackToTop = ({ backtotopRef }) => (
   <div className="back-to-top-div position-fixed bottom-0 end-0 m-3">
     <img
@@ -83,7 +85,7 @@ const BackToTop = ({ backtotopRef }) => (
   </div>
 );
 
-// LandingSection Component 
+// LandingSection Component
 const LandingSection = () => (
   <section
     id="landing-section"
@@ -176,23 +178,22 @@ const LandingSection = () => (
   </section>
 );
 
-// AboutMeSection Component 
+// AboutMeSection Component
 const AboutMeSection = () => {
   const skills = [
     html5,
     css3,
     javascript,
     bootstrap,
+    tailwind,
     react,
     nodeJs,
+    expo,
     figma,
     canva,
     firebase,
     git,
     github,
-    mysql,
-    java,
-    cProgramming,
   ];
 
   return (
@@ -202,7 +203,7 @@ const AboutMeSection = () => {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.4 }} 
+        transition={{ duration: 0.4 }}
       >
         BUILDING MODERN USER EXPERIENCES
       </motion.div>
@@ -212,7 +213,7 @@ const AboutMeSection = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.4, delay: 0.05 }} 
+          transition={{ duration: 0.4, delay: 0.05 }}
         >
           <div className="about-me-content-text-1 caveat-fourHun mt-5">
             Hello there! I'm Dev, an undergrad student. I like designing,
@@ -223,7 +224,7 @@ const AboutMeSection = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.4, delay: 0.075 }} 
+            transition={{ duration: 0.4, delay: 0.075 }}
           >
             “Not a traditional graphic designer focused solely on visuals but I
             enjoy sketching and crafting clean, minimalist interfaces.”
@@ -233,7 +234,7 @@ const AboutMeSection = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.4, delay: 0.1 }} 
+            transition={{ duration: 0.4, delay: 0.1 }}
           >
             “Dev is in my name, so it's no surprise I love developing just as
             much as designing.”
@@ -246,7 +247,7 @@ const AboutMeSection = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.4, delay: 0.15 }} 
+          transition={{ duration: 0.4, delay: 0.15 }}
         />
       </div>
       <motion.div
@@ -254,7 +255,7 @@ const AboutMeSection = () => {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.4, delay: 0.2 }} 
+        transition={{ duration: 0.4, delay: 0.2 }}
       >
         <div className="skillset-heading text-center font-thunder-extra-bold-lc">
           SKILLSET
@@ -269,7 +270,7 @@ const AboutMeSection = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.4, delay: index * 0.025 + 0.15 }} 
+              transition={{ duration: 0.4, delay: index * 0.025 + 0.15 }}
             />
           ))}
         </div>
@@ -278,17 +279,17 @@ const AboutMeSection = () => {
   );
 };
 
-// ProjectsSection Component 
+// ProjectsSection Component
 const ProjectsSection = () => (
   <section id="projects" className="content-section container-fluid mx-1 p-2">
     <div className="container-fluid my-work-section py-5">
       <div className="d-flex flex-column">
-                <motion.div
+        <motion.div
           className="my-3 project-div"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.4, delay: 0.125 }} 
+          transition={{ duration: 0.4, delay: 0.125 }}
         >
           <div className="project-heading d-flex gap-5 project-container">
             <h3 className="font-thunder-black-lc title-text text-white project-title">
@@ -303,14 +304,16 @@ const ProjectsSection = () => (
             </h3>
             <img src={arrow} alt="" className="project-arrow" />
           </div>
-          <p className="montserrat-regular text-dark-teal">[2025] Design Project</p>
+          <p className="montserrat-regular text-dark-teal">
+            [2025] Design Project
+          </p>
         </motion.div>
         <motion.div
           className="my-3 project-div"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.4, delay: 0.05 }} 
+          transition={{ duration: 0.4, delay: 0.05 }}
         >
           <div className="project-heading d-flex gap-5 project-container">
             <h3 className="font-thunder-black-lc title-text text-white project-title">
@@ -325,14 +328,16 @@ const ProjectsSection = () => (
             </h3>
             <img src={arrow} alt="" className="project-arrow" />
           </div>
-          <p className="montserrat-regular text-dark-teal">[2024] Design Project</p>
+          <p className="montserrat-regular text-dark-teal">
+            [2024] Design Project
+          </p>
         </motion.div>
         <motion.div
           className="my-3 project-div"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.4, delay: 0.075 }} 
+          transition={{ duration: 0.4, delay: 0.075 }}
         >
           <div className="project-heading d-flex gap-5 project-container">
             <h3 className="font-thunder-black-lc title-text text-white project-title">
@@ -347,14 +352,16 @@ const ProjectsSection = () => (
             </h3>
             <img src={arrow} alt="" className="project-arrow" />
           </div>
-          <p className="montserrat-regular text-dark-teal">[2024] Internship Project</p>
+          <p className="montserrat-regular text-dark-teal">
+            [2024] Internship Project
+          </p>
         </motion.div>
         <motion.div
           className="my-3 project-div"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.4, delay: 0.1 }} 
+          transition={{ duration: 0.4, delay: 0.1 }}
         >
           <div className="project-heading d-flex gap-5 project-container">
             <h3 className="font-thunder-black-lc title-text text-white project-title">
@@ -362,14 +369,16 @@ const ProjectsSection = () => (
             </h3>
             <img src={arrow} alt="" className="project-arrow" />
           </div>
-          <p className="montserrat-regular text-dark-teal">[2025] Personal Project</p>
+          <p className="montserrat-regular text-dark-teal">
+            [2025] Personal Project
+          </p>
         </motion.div>
         <motion.div
           className="my-3 project-div"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.4, delay: 0.125 }} 
+          transition={{ duration: 0.4, delay: 0.125 }}
         >
           <div className="project-heading d-flex gap-5 project-container">
             <h3 className="font-thunder-black-lc title-text text-white project-title">
@@ -384,14 +393,16 @@ const ProjectsSection = () => (
             </h3>
             <img src={arrow} alt="" className="project-arrow" />
           </div>
-          <p className="montserrat-regular text-dark-teal">Ongoing design practice</p>
+          <p className="montserrat-regular text-dark-teal">
+            Ongoing design practice
+          </p>
         </motion.div>
       </div>
     </div>
   </section>
 );
 
-// ContactSection Component 
+// ContactSection Component
 const ContactSection = () => (
   <section
     id="contact"
@@ -405,7 +416,7 @@ const ContactSection = () => (
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.4 }} 
+          transition={{ duration: 0.4 }}
         >
           <img src={sayhi} alt="" height="400" />
         </motion.div>
@@ -416,7 +427,7 @@ const ContactSection = () => (
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.4, delay: 0.05 }} 
+              transition={{ duration: 0.4, delay: 0.05 }}
             >
               email me at
             </motion.div>
@@ -425,10 +436,15 @@ const ContactSection = () => (
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.4, delay: 0.1 }} 
+              transition={{ duration: 0.4, delay: 0.1 }}
             >
               devbagga2675@outlook
-              <img src={arrow} alt="" height="30" className="ms-2 inline-arrow" />
+              <img
+                src={arrow}
+                alt=""
+                height="30"
+                className="ms-2 inline-arrow"
+              />
             </motion.div>
             <motion.div
               className="contact-small-text montserrat-regular"
@@ -447,7 +463,12 @@ const ContactSection = () => (
               transition={{ duration: 0.4, delay: 0.2 }}
             >
               Linkedin
-              <img src={arrow} alt="" height="30" className="ms-2 inline-arrow" />
+              <img
+                src={arrow}
+                alt=""
+                height="30"
+                className="ms-2 inline-arrow"
+              />
             </motion.div>
           </div>
           <div className="contact-me-socials-and-docs d-flex">
@@ -458,12 +479,14 @@ const ContactSection = () => (
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.4, delay: 0.25 }} 
+                transition={{ duration: 0.4, delay: 0.25 }}
               >
                 GITHUB
               </motion.a>
               <motion.a
-                href="http://"
+                href="https://dribbble.com/devdesigns26"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="footer-link fs-5 fs-md-4 fs-lg-4 montserrat-regular mt-3"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -480,7 +503,7 @@ const ContactSection = () => (
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.4, delay: 0.4 }} 
+                transition={{ duration: 0.4, delay: 0.4 }}
               >
                 MY WORK
               </motion.a>
@@ -490,7 +513,7 @@ const ContactSection = () => (
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.4, delay: 0.45 }} 
+                transition={{ duration: 0.4, delay: 0.45 }}
               >
                 MY RESUME
               </motion.a>
@@ -502,7 +525,7 @@ const ContactSection = () => (
   </section>
 );
 
-// Footer Component 
+// Footer Component
 const Footer = () => (
   <div className="page-end-text montserrat-regular fs-6 text-center bottom-0 mb-3 w-100">
     This website was designed in FIGMA, and developed using REACTJS and it's
@@ -512,7 +535,7 @@ const Footer = () => (
   </div>
 );
 
-// Main App Component 
+// Main App Component
 function App() {
   const [isNavOpen, setIsNavOpen] = useState(true);
   const backtotopRef = useRef();
@@ -527,19 +550,27 @@ function App() {
     const navCross = navCrossRef.current;
     const fastScrollElement = document.getElementById("fastScroll");
 
-    if (!backtotopbutton || !topcontentright || !navCross || !fastScrollElement) {
+    if (
+      !backtotopbutton ||
+      !topcontentright ||
+      !navCross ||
+      !fastScrollElement
+    ) {
       console.error("One or more elements not found");
       return () => clearTimeout(timeoutId);
     }
 
-    const handleBackToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+    const handleBackToTop = () =>
+      window.scrollTo({ top: 0, behavior: "smooth" });
     const handleScroll = () => {
       backtotopbutton.style.transform =
         window.scrollY > 100 ? "rotate(0deg)" : "rotate(180deg)";
     };
     const handleSpeedScroll = () => {
       let scrollPosition = window.scrollY;
-      fastScrollElement.style.transform = `translateY(${-scrollPosition * 0.4}px)`;
+      fastScrollElement.style.transform = `translateY(${
+        -scrollPosition * 0.4
+      }px)`;
     };
 
     backtotopbutton.addEventListener("click", handleBackToTop);
@@ -558,7 +589,7 @@ function App() {
 
   return (
     <div className="app position-relative">
-      <Analytics/>
+      <Analytics />
       {window.innerWidth < 768 ? (
         ""
       ) : (
