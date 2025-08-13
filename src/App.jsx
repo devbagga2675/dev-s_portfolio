@@ -295,6 +295,54 @@ const ProjectsSection = () => (
             <h3 className="font-thunder-black-lc title-text text-white project-title">
               <a
                 className="footer-link"
+                href="https://www.figma.com/proto/cDpzdAgeRWy8twCSYuE4Wb/Untitled?page-id=0%3A1&node-id=119-10086&viewport=226%2C589%2C0.03&t=3I5nBZ0zEjvQW8PM-1&scaling=scale-down&content-scaling=fixed"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Finsure+
+              </a>
+            </h3>
+            <img src={arrow} alt="" className="project-arrow" />
+          </div>
+          <p className="montserrat-regular text-dark-teal project-sub-heading ">
+            [2025] Design Project
+          </p>
+        </motion.div>
+        <motion.div
+          className="my-3 project-div"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.125 }}
+        >
+          <div className="project-heading d-flex gap-5 project-container">
+            <h3 className="font-thunder-black-lc title-text text-white project-title">
+              <a
+                className="footer-link"
+                href="https://dribbble.com/shots/26392649"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                KSS
+              </a>
+            </h3>
+            <img src={arrow} alt="" className="project-arrow" />
+          </div>
+          <p className="montserrat-regular text-dark-teal project-sub-heading ">
+            [2025] Design Project
+          </p>
+        </motion.div>
+        <motion.div
+          className="my-3 project-div"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.125 }}
+        >
+          <div className="project-heading d-flex gap-5 project-container">
+            <h3 className="font-thunder-black-lc title-text text-white project-title">
+              <a
+                className="footer-link"
                 href="https://dribbble.com/shots/26155879"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -304,7 +352,7 @@ const ProjectsSection = () => (
             </h3>
             <img src={arrow} alt="" className="project-arrow" />
           </div>
-          <p className="montserrat-regular text-dark-teal">
+          <p className="montserrat-regular text-dark-teal project-sub-heading">
             [2025] Design Project
           </p>
         </motion.div>
@@ -328,7 +376,7 @@ const ProjectsSection = () => (
             </h3>
             <img src={arrow} alt="" className="project-arrow" />
           </div>
-          <p className="montserrat-regular text-dark-teal">
+          <p className="montserrat-regular text-dark-teal project-sub-heading">
             [2024] Design Project
           </p>
         </motion.div>
@@ -352,7 +400,7 @@ const ProjectsSection = () => (
             </h3>
             <img src={arrow} alt="" className="project-arrow" />
           </div>
-          <p className="montserrat-regular text-dark-teal">
+          <p className="montserrat-regular text-dark-teal project-sub-heading">
             [2024] Internship Project
           </p>
         </motion.div>
@@ -369,7 +417,7 @@ const ProjectsSection = () => (
             </h3>
             <img src={arrow} alt="" className="project-arrow" />
           </div>
-          <p className="montserrat-regular text-dark-teal">
+          <p className="montserrat-regular text-dark-teal project-sub-heading">
             [2025] Personal Project
           </p>
         </motion.div>
@@ -393,7 +441,7 @@ const ProjectsSection = () => (
             </h3>
             <img src={arrow} alt="" className="project-arrow" />
           </div>
-          <p className="montserrat-regular text-dark-teal">
+          <p className="montserrat-regular text-dark-teal project-sub-heading">
             Ongoing design practice
           </p>
         </motion.div>
